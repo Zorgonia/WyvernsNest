@@ -6,11 +6,12 @@ project(Game)
 set (Game_VERSION_MAJOR 1)
 set (Game_VERSION_MINOR 0)
 
-if(APPLE)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -framework OpenGL -w -lGLEW -lSDL2 -lSDL2_mixer -lfreetype -L/usr/local/Cellar/sdl2/2.0.9/lib/ -L/usr/local/Cellar/glew/2.1.0/lib/ -L/usr/local/Cellar/freetype/2.9.1/lib/ -L/usr/local/Cellar/sdl2_mixer/2.0.4/lib -I/usr/local/Cellar/sdl2/2.0.9/include/SDL2/ -Isrc/vendor -I/usr/local/Cellar/glew/2.1.0/include/ -Ilibs/stb_image/ -I/usr/local/Cellar/freetype/2.9.1/include/freetype2/ -I/usr/local/Cellar/sdl2_mixer/2.0.4/include/SDL2 -D_DEBUG")
-endif()
-
 add_executable(Game)
+
+if(APPLE)
+target_compile_definitions(Game PRIVATE XBRZLIB_RELATIVEPATHSDL)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -framework OpenGL -w -lGLEW -lSDL2 -lSDL2_mixer -lfreetype -L/usr/local/Cellar/sdl2/2.0.9/lib/ -L/usr/local/Cellar/glew/2.1.0/lib/ -L/usr/local/Cellar/freetype/2.9.1/lib/ -L/usr/local/Cellar/sdl2_mixer/2.0.4/lib -I/usr/local/Cellar/sdl2/2.0.9/include/ -I/usr/local/Cellar/sdl2/2.0.9/include/SDL2/ -Isrc/vendor -I/usr/local/Cellar/glew/2.1.0/include/ -Ilibs/stb_image/ -I/usr/local/Cellar/freetype/2.9.1/include/freetype2/ -I/usr/local/Cellar/sdl2_mixer/2.0.4/include/ -I/usr/local/Cellar/sdl2_mixer/2.0.4/include/SDL2/ -D_DEBUG")
+endif()
 
 if(WIN32)
 target_link_libraries(Game Opengl32.lib)
