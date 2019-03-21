@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.13.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.11.0 FATAL_ERROR)
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(Game)
@@ -62,7 +63,8 @@ source_group("Header Files\\game\\combat" FILES
     src/game/combat/grid.hpp
     src/game/combat/player.hpp
     src/game/combat/status.hpp
-    src/game/combat/unit.hpp)
+    src/game/combat/unit.hpp
+    src/game/combat/camera.hpp)
 
 source_group("Source Files\\game\\combat" FILES
     src/game/combat/attack.cpp
@@ -70,7 +72,8 @@ source_group("Source Files\\game\\combat" FILES
     src/game/combat/grid.cpp
     src/game/combat/player.cpp
     src/game/combat/status.cpp
-    src/game/combat/unit.cpp)
+    src/game/combat/unit.cpp
+    src/game/combat/camera.cpp)
 
 source_group("Header Files\\game\\combat\\enemies" FILES
     src/game/combat/enemies/babyGoombaEnemy.hpp
